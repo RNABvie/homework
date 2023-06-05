@@ -21,7 +21,8 @@ li a:hover{
 }
 
 .bboard{
-    width: calc(100% / 2);
+    width: 50%;
+
 }
 
 .bboard__title{

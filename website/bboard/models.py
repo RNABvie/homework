@@ -1,6 +1,6 @@
 from django.db import models
 from django.core import validators
-
+from datetime import datetime
 class Rubric(models.Model):
     name = models.CharField(max_length=20, db_index=True, verbose_name='Название')
 
@@ -13,11 +13,28 @@ class Rubric(models.Model):
         ordering = ['name']
 
 class Bb(models.Model):
-    def title_and_price(self):
+    def id_and_timeleft(self):
         # return 'example'
-        return f'{self.title} ({self.price})'
+        time1 = str(self.published.today())
+        time2 = str(self.published)
+        time2 = time2[0:len(time2)-6]
 
-    title_and_price.short_description = 'Название и цена'
+        timedelta = datetime.strptime(time1, "%Y-%m-%d %H:%M:%S.%f") - datetime.strptime(time2, "%Y-%m-%d %H:%M:%S.%f")
+        hours = round(timedelta.total_seconds() // 3600)
+        days_count = hours // 24
+        days_count2 = days_count * 24
+        hours_count = hours - days_count2
+
+        text_h = 'часов назад'
+        if hours_count == 1:
+            text_h = 'час назад'
+        elif hours_count in (2, 3, 4):
+            text_h = 'часа назад'
+
+        return f'(Nº{self.id}) {days_count} дн. {hours_count} {text_h}'
+        # return f'{hours, hours_count, time2}'
+
+    id_and_timeleft.short_description = 'Номер и прошедшее время '
 
     KINDS = (('b', "Куплю"),
              ('s', "Продам"),
