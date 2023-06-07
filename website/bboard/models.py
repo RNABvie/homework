@@ -43,7 +43,7 @@ class Bb(models.Model):
     rubric = models.ForeignKey(Rubric, null=True, on_delete=models.PROTECT, verbose_name='Рубрика')
     title = models.CharField(max_length=50, verbose_name='Загаловок', validators=[validators.MinLengthValidator(8, message='Минимум 10 символов')])
     content = models.TextField(null=True, blank=True, verbose_name='Контент')
-    price = models.FloatField(null=True, blank=True, verbose_name='Цена')
+    price = models.FloatField(null=True, blank=True, verbose_name='Цена', validators=[validators.MinValueValidator(0, message='zero value or above')], default=1)
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Дата публикации')
 
     class Meta:
