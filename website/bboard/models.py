@@ -51,3 +51,6 @@ class Bb(models.Model):
         verbose_name = 'Объявление'
         ordering = ['-published']
 
+
+
+

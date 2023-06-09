@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Главная{% endblock %} | Доска объявлений</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bboard/stylee.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bboard/stylee.css' %}">  <!--{% now "U" %}-->
 </head>
 <body>
 
-<ul>
+<ul class="by_rubric__options">
     <li><a href="{% url 'index' %}">Главная</a></li>
 {% for rubric in rubrics %}
     <li><a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a></li>
 {% endfor %}
+    <li><a href="{% url 'add' %}">?<i>Добавить?</i>></a></li>
 </ul>
 
 {% block content %}

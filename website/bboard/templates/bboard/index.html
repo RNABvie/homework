@@ -3,19 +3,20 @@
 {% block content %}
 
 
-<a href="{% url 'add' %}">Добавить</a>
+<!--<a href="{% url 'add' %}">Добавить</a>-->
 
 <h1 class="title">Объявления</h1>
+<div class="box__bboard">
 {% for bb in bbs %}
-<div class="bboard">
+    <div class="bboard">
 
-    {{ bb.id_and_timeleft }}
-    <h2 class="bboard__title">{{ bb.title }}</h2>
-    <h6 class="bboard__rubric">{{ bb.rubric }}</h6>
-    <p class="bboard__content">{{ bb.content }}</p>
-    <p class="bboard__price">Цена: {{ bb.price }}</p>
-    <p class="bboard__date">{{ bb.published|date:"d.m.Y H:i:s" }}</p>
-</div>
+        <h4 class="bboard__timeleft">{{ bb.id_and_timeleft }}</h4>
+        <h2 class="bboard__title">{{ bb.title }}</h2>
+        <h6 class="bboard__rubric">{{ bb.rubric }}</h6>
+        <p class="bboard__content">{{ bb.content }}</p>
+        <p class="bboard__price">Цена: {{ bb.price }}</p>
+        <p class="bboard__date">{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+    </div>
 {% endfor %}
-
+</div>
 {% endblock %}

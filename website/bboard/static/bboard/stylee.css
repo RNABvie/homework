@@ -4,24 +4,56 @@ ul{
     justify-content: space-evenly;
     width: 100%;
     padding: 0;
-    margin: 20px 0;
+    margin: 10px 0;
+}
+
+body{
+    width: 52%;
 }
 
 li{
     list-style: none;
 }
 
+.box__bboard{
+    padding: 12px 0px 12px 0px;
+    min-width: 693px;
+    max-width: 722px;
+    min-height: calc(722px/3);
+    max-height: 722px;
+    overflow: scroll;
+    border: 2px solid black;
+}
+
 li a{
-    text-decoration: none;
     color: #000;
+    text-decoration: none;
 }
 
 li a:hover{
     color: #156;
+
+}
+
+.by_rubric__options li:hover{
+    text-decoration: none;
+    list-style: none;
+
 }
 
 .bboard{
-    width: 50%;
+    width: 40%;
+    display: inline-block;
+    padding: 0px 25px 0px 10px;
+}
+
+.by_rubric__options{
+    background-color: gray;
+
+}
+.by_rubric__options li {
+    text-decoration: line-through;
+    list-style: circle;
 
 }
 
@@ -31,6 +63,11 @@ li a:hover{
 
 .bboard__content{
     margin: 0;
+}
+
+.bboard__timeleft{
+    /* border-top: 1px solid black; */
+    margin: 5px 0px 0px 0px;
 }
 
 .bboard__price{
@@ -44,7 +81,14 @@ li a:hover{
 
 .bboard__date{
     margin: 0 0 15px 0;
-    border-bottom: 1px solid black;
+    /*border-bottom: 2.5px solid black;*/
+
+}
+
+.title{
+    padding-top: 18px;
+    display: table-cell;
+
 }
 
 .errorlist li{
